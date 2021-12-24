@@ -2,3 +2,4 @@
 .terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.61.0/linux_amd64/CHANGELOG.md
 .terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.61.0/linux_amd64/LICENSE
 .terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.61.0/linux_amd64/terraform-provider-yandex_v0.61.0
+.terraform
