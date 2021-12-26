@@ -21,7 +21,7 @@ resource "yandex_compute_instance" "vm-test-netology" {
   }
   boot_disk {
     initialize_params {
-      image_id = "main"
+      image_id = "fd8f30hur3255mjfi3hq"
       type = "network-hdd"
       size = "5"
     }
@@ -31,7 +31,9 @@ resource "yandex_compute_instance" "vm-test-netology" {
     nat       = "true"
   }
   metadata = {
-  
-    ssh-keys = "centos:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+  }
+  scheduling_policy {
+    preemptible = true
   }
 }
