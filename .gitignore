@@ -6,3 +6,5 @@
 terraform.tfstate
 .gitignore
 terraform.tfstate.backup
+variables.tf
+backend.tf
