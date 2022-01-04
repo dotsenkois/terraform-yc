@@ -19,6 +19,8 @@ terraform {
 */
 
 
+
+
 provider "yandex" {
   zone = "ru-central1-c"
   #Ключи сохранены в переменых среды:
