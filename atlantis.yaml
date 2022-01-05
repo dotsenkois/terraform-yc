@@ -21,7 +21,7 @@ projects:
     when_modified: ["*.tf", "../modules/**.tf"]
     enabled: true
   apply_requirements: [mergeable, approved]
-  workflow: workflow-prod
+  #workflow: workflow-prod
 workflows:
   workflow-prod:
     plan:
