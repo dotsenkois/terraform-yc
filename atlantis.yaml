@@ -26,19 +26,19 @@ workflows:
   workflow-prod:
     plan:
       steps:
-      - run: echo "hi"
+      #- run: echo "hi"
       - init
       - plan:
           extra_args: ["-lock", "false"]
       #- run: my-custom-command arg1 arg2
     apply:
       steps:
-      - run: echo hi
+      #- run: echo hi
       - apply
   workflow-stage:
     plan:
       steps:
-      - run: echo "hi"
+      #- run: echo "hi"
       - init
       - plan:
           extra_args: ["-lock", "false"]
