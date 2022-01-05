@@ -15,7 +15,7 @@ repos:
 
   # workflow sets the workflow for all repos that match.
   # This workflow must be defined in the workflows section.
-  workflow: workflow-stage, workflow-prod
+  workflow: workflow-stage
 
   # allowed_overrides specifies which keys can be overridden by this repo in
   # its atlantis.yaml file.
@@ -46,7 +46,7 @@ workflows:
   workflow-stage:
     plan:
       steps:
-      - run: terraform workspace select -no-color stage
+      #- run: terraform workspace select -no-color stage
       - init
       - plan:
           extra_args: ["-lock", "false"]
@@ -54,18 +54,18 @@ workflows:
     apply:
 
       steps:
-      - run: terraform workspace select -no-color stage
+      #- run: terraform workspace select -no-color stage
       - apply
-workflow-prod:
-    plan:
-      steps:
-      - run: terraform workspace select -no-color prod
-      - init
-      - plan:
-          extra_args: ["-lock", "false"]
-      #- run: my-custom-command arg1 arg2
-    apply:
+  workflow-prod:
+      plan:
+        steps:
+       # - run: terraform workspace select -no-color prod
+        - init
+        - plan:
+            extra_args: ["-lock", "false"]
+        #- run: my-custom-command arg1 arg2
+      apply:
 
-      steps:
-      - run: terraform workspace select -no-color prod
-      - apply
+        steps:
+        #- run: terraform workspace select -no-color prod
+        - apply
