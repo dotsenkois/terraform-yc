@@ -26,22 +26,22 @@ workflows:
   workflow-prod:
     plan:
       steps:
-      - run: terraform workspace select -no-color prod
+      #- run: terraform workspace select -no-color prod
       - init
       - plan
     apply:
       steps:
-      - run: terraform workspace select -no-color prod
+      #- run: terraform workspace select -no-color prod
       - apply
   workflow-stage:
     plan:
       steps:
-      - run: terraform workspace select -no-color stage
+      #- run: terraform workspace select -no-color stage
       - init
       - plan
     apply:
       steps:
-      - run: terraform workspace select -no-color stage
+      #- run: terraform workspace select -no-color stage
       - apply
 # allowed_regexp_prefixes:
 # - dev/
