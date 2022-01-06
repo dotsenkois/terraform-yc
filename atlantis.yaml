@@ -21,28 +21,34 @@ projects:
     when_modified: ["*.tf", "../modules/**.tf"]
     enabled: true
   apply_requirements: [mergeable, approved]
-  #workflow: workflow-prod
+  workflow: workflow-prod
 workflows:
   workflow-prod:
     plan:
       steps:
       #- run: terraform workspace select -no-color prod
-      - init
-      - plan
+      - init:
+          extra_args: ["-lock=false"]
+      - plan:
+          extra_args: ["-lock=false"]
     apply:
       steps:
       #- run: terraform workspace select -no-color prod
-      - apply
+      - apply:
+          extra_args: ["-lock=false"]
   workflow-stage:
     plan:
       steps:
       #- run: terraform workspace select -no-color stage
-      - init
-      - plan
+      - init:
+          extra_args: ["-lock=false"]
+      - plan:
+          extra_args: ["-lock=false"]
     apply:
       steps:
       #- run: terraform workspace select -no-color stage
-      - apply
+      - apply:
+          extra_args: ["-lock=false"]
 # allowed_regexp_prefixes:
 # - dev/
 # - staging/
