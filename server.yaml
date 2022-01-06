@@ -9,7 +9,6 @@ repos:
   # (the branch the pull request is getting merged into).
   # By default, all branches are matched
   branch: /.*/
-  allowed_overrides: [workflow]
 
   # apply_requirements sets the Apply Requirements for all repos that match.
   apply_requirements: [approved, mergeable]
@@ -20,7 +19,7 @@ repos:
 
   # allowed_overrides specifies which keys can be overridden by this repo in
   # its atlantis.yaml file.
-  #allowed_overrides: [apply_requirements, workflow, delete_source_branch_on_merge]
+  allowed_overrides: [apply_requirements, workflow, delete_source_branch_on_merge]
 
   # allowed_workflows specifies which workflows the repos that match 
   # are allowed to select.
@@ -49,11 +48,8 @@ workflows:
       steps:
       #- run: terraform workspace select -no-color stage
       - init
-      - plan:
-          extra_args: ["-lock", "false"]
-      #- run: my-custom-command arg1 arg2
+      - plan
     apply:
-
       steps:
       #- run: terraform workspace select -no-color stage
       - apply
@@ -62,9 +58,8 @@ workflows:
         steps:
        # - run: terraform workspace select -no-color prod
         - init
-        - plan:
-            extra_args: ["-lock", "false"]
-        #- run: my-custom-command arg1 arg2
+        - plan
+                #- run: my-custom-command arg1 arg2
       apply:
 
         steps:
