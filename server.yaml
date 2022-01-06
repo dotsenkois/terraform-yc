@@ -4,7 +4,7 @@ repos:
   # If using a regex, it must start and end with a slash.
   # Repo ID's are of the form {VCS hostname}/{org}/{repo name}, ex.
   # github.com/runatlantis/atlantis.
-- id: https://github.com/dotsenkois/terraform-yc
+- id: /.*/
   # branch is an regex matching pull requests by base branch
   # (the branch the pull request is getting merged into).
   # By default, all branches are matched
@@ -19,8 +19,8 @@ repos:
 
   # allowed_overrides specifies which keys can be overridden by this repo in
   # its atlantis.yaml file.
-  allowed_overrides: [apply_requirements, workflow, delete_source_branch_on_merge]
-
+  #allowed_overrides: [apply_requirements, workflow, delete_source_branch_on_merge]
+  allowed_overrides: [workflow]
   # allowed_workflows specifies which workflows the repos that match 
   # are allowed to select.
   allowed_workflows: ["workflow-stage", "workflow-prod"]
